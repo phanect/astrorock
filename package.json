@@ -4,4 +4,20 @@
   "description": "A CMS dedicated to build job platforms",
   "author": "Jumpei Ogawa (https://phanective.org)",
   "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "tsc --noEmit && eslint .",
+    "fix": "eslint --fix ."
+  },
+  "devDependencies": {
+    "@phanect/configs": "latest",
+    "eslint": "^8",
+    "eslint-config-phanective": "latest",
+    "typescript": "^5.5.3"
+  },
+  "engines": {
+    "node": "22.x",
+    "npm": ">=10"
+  }
 }

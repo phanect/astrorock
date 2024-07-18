@@ -1,0 +1,13 @@
+{
+  "extends": "@phanect/configs/tsconfig/nodejs",
+  "include": [
+    "**/*.ts",
+    "**/*.js",
+    "**/*.mjs"
+  ],
+  "exclude": [
+    "node_modules/",
+    "dist/",
+    "./modules/frontend/**/*"
+  ]
+}
