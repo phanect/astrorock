@@ -6,11 +6,19 @@
   "license": "UNLICENSED",
   "private": true,
   "type": "module",
+  "workspaces": [
+    "modules/*"
+  ],
   "scripts": {
-    "lint": "tsc --noEmit && eslint .",
-    "fix": "eslint --fix ."
+    "dev": "lerna run dev --parallel",
+    "build": "lerna run build --parallel",
+    "test": "lerna run test --parallel",
+    "lint": "tsc --noEmit && eslint . && lerna run lint --parallel",
+    "fix": "eslint --fix . && lerna run fix --parallel"
   },
   "devDependencies": {
+    "@lerna-lite/cli": "^3.7.1",
+    "@lerna-lite/run": "^3.7.1",
     "@phanect/configs": "latest",
     "eslint": "^8",
     "eslint-config-phanective": "latest",
