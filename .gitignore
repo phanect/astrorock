@@ -41,10 +41,10 @@ yarn-error.log*
 pnpm-debug.log*
 
 # npm is the package manager for this project.
+package-lock.json
 yarn.lock
-pnpm-lock.yaml
 bun.lockb
-# package-lock.json # comment out if you use another package manager
+# pnpm-lock.yaml # comment out if you use another package manager
 
 # Astro
 .astro/
