@@ -4,7 +4,6 @@
   "description": "A CMS dedicated to build job search platforms ― frontend package",
   "license": "UNLICENSED",
   "type": "module",
-  "private": true,
   "engines": {
     "node": "18.x || 20.x || 22.x",
     "npm": ">=10"
