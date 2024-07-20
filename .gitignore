@@ -45,6 +45,9 @@ node_modules/
 # npm is the package manager for this project.
 yarn.lock
 
+# Astro
+.astro/
+
 # Others
 .node_repl_history
 .eslintcache
