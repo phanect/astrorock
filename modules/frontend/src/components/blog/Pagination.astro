@@ -1,0 +1,36 @@
+---
+import Image from "~/components/common/Image.astro";
+import { getPermalink } from '~/utils/permalinks';
+import Button from '~/components/ui/Button.astro';
+
+export interface Props {
+  prevUrl?: string;
+  nextUrl?: string;
+  prevText?: string;
+  nextText?: string;
+}
+
+const { prevUrl, nextUrl, prevText = 'Newer posts', nextText = 'Older posts' } = Astro.props;
+---
+
+{
+  (prevUrl || nextUrl) && (
+    <div class="container flex">
+      <div class="flex flex-row mx-auto container justify-between">
+        <Button
+          variant="tertiary"
+          class={`md:px-3 px-3 mr-2 ${!prevUrl ? 'invisible' : ''}`}
+          href={getPermalink(prevUrl)}
+        >
+          <Image src="~/assets/vendor/tabler/chevron-left.svg" class="w-6 h-6" />
+          <p class="ml-2">{prevText}</p>
+        </Button>
+
+        <Button variant="tertiary" class={`md:px-3 px-3 ${!nextUrl ? 'invisible' : ''}`} href={getPermalink(nextUrl)}>
+          <span class="mr-2">{nextText}</span>
+          <Image src="~/assets/vendor/tabler/chevron-right.svg" class="w-6 h-6" />
+        </Button>
+      </div>
+    </div>
+  )
+}
