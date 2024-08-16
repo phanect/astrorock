@@ -13,7 +13,6 @@ import compress from 'astro-compress';
 import astrowind from './vendor/integration';
 
 import {
-  readingTimeRemarkPlugin,
   responsiveTablesRehypePlugin,
   lazyImagesRehypePlugin,
 } from './src/utils/frontmatter.mjs';
@@ -80,7 +79,6 @@ export default defineConfig({
   },
 
   markdown: {
-    remarkPlugins: [readingTimeRemarkPlugin],
     rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
   },
 
