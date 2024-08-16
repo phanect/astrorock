@@ -15,7 +15,7 @@ import astrowind from './vendor/integration';
 import {
   responsiveTablesRehypePlugin,
   lazyImagesRehypePlugin,
-} from './src/utils/frontmatter.mjs';
+} from './src/utils/frontmatter.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
