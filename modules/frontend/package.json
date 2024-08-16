@@ -25,7 +25,7 @@
     "unpic": "^3.18.0"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.8.2",
+    "@astrojs/check": "^0.9.2",
     "@astrojs/mdx": "^3.1.1",
     "@astrojs/partytown": "^2.1.1",
     "@astrojs/tailwind": "5.1.0",
@@ -34,7 +34,7 @@
     "@tailwindcss/typography": "^0.5.13",
     "@types/js-yaml": "^4.0.9",
     "@types/lodash.merge": "^4.6.9",
-    "astro-compress": "2.2.28",
+    "astro-compress": "^2.2.28",
     "globals": "^15.6.0",
     "js-yaml": "^4.1.0",
     "rehype-plugin-image-native-lazy-loading": "^1.2.0",
