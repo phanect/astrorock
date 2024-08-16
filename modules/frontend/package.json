@@ -2,6 +2,7 @@
   "name": "@guildmaster/frontend",
   "version": "0.1.0",
   "description": "A CMS dedicated to build job search platforms ― frontend package",
+  "license": "UNLICENSED",
   "type": "module",
   "private": true,
   "engines": {
