@@ -1,64 +1,22 @@
 ---
-import { findImage } from '~/utils/images';
-import {
-  getImagesOptimized,
-  astroAsseetsOptimizer,
-  unpicOptimizer,
-  isUnpicCompatible,
-  type ImageProps,
-  type AttributesProps,
-} from '~/utils/images-optimization';
+import { Image as AstroImage } from "astro:assets";
+import type { ComponentProps } from "astro/types";
 
-type Props = ImageProps;
-type ImageType = {
-  src: string;
-  attributes: AttributesProps;
+type AstroImageProps = ComponentProps<typeof AstroImage>;
+
+export type Props = Omit<AstroImageProps, "decoding" | "referrerpolicy"> & {
+  layout?: "fixed" | "constrained" | "fullWidth" | "cover" | "responsive" | "contained";
+  aspectRatio?: string | number;
 };
 
-const props = Astro.props;
+const { layout, aspectRatio, ...givenAttributes } = Astro.props;
 
-if (props.alt === undefined || props.alt === null) {
-  throw new Error();
-}
+const attributes = {
+  ...givenAttributes,
 
-if (typeof props.width === 'string') {
-  props.width = parseInt(props.width);
-}
-
-if (typeof props.height === 'string') {
-  props.height = parseInt(props.height);
-}
-
-if (!props.loading) {
-  props.loading = 'lazy';
-}
-
-if (!props.decoding) {
-  props.decoding = 'async';
-}
-
-const _image = await findImage(props.src);
-
-let image: ImageType | undefined = undefined;
-
-if (typeof _image === 'string') {
-  if ((_image.startsWith('http://') || _image.startsWith('https://')) && isUnpicCompatible(_image)) {
-    image = await getImagesOptimized(_image, props, unpicOptimizer);
-  } else {
-    image = {
-      src: _image,
-      attributes: { ...props, src: undefined },
-    };
-  }
-} else if (_image) {
-  image = await getImagesOptimized(_image, props, astroAsseetsOptimizer);
-}
+  referrerpolicy: "no-referrer",
+  decoding: "async",
+} as AstroImageProps;
 ---
 
-{
-  !image ? (
-    <Fragment />
-  ) : (
-    <img src={image.src} crossorigin="anonymous" referrerpolicy="no-referrer" {...image.attributes} />
-  )
-}
+<AstroImage {...attributes} />
