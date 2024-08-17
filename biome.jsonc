@@ -1,4 +1,28 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "extends": ["@phanect/configs/biome"]
+  "extends": ["@phanect/configs/biome"],
+
+  // TODO include in @phanect/configs/biome
+  "linter": {
+    "rules": {
+      "style": {
+        "noUselessElse": "off"
+      }
+    }
+  },
+  // These rules does not work properly on *astro files
+  "overrides": [{
+    "include": ["*.astro"],
+    "linter": {
+      "rules": {
+        "correctness": {
+          "noUnusedImports": "off",
+          "noUnusedVariables": "off"
+        },
+        "style": {
+          "useImportType": "off"
+        }
+      }
+    }
+  }]
 }
