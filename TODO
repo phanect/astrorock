@@ -1,0 +1,2 @@
+set up Cloudflare
+  - Adapter is required https://docs.astro.build/en/guides/server-side-rendering/#add-an-adapter
