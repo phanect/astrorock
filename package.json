@@ -17,6 +17,7 @@
     "fix": "eslint --fix . && lerna run fix --parallel"
   },
   "devDependencies": {
+    "@astrojs/ts-plugin": "^1.10.1",
     "@lerna-lite/cli": "^3.7.1",
     "@lerna-lite/run": "^3.7.1",
     "@phanect/configs": "latest",
