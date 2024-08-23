@@ -1,5 +1,3 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
-
 export const headerData = {
   links: [
     {
@@ -7,23 +5,23 @@ export const headerData = {
       links: [
         {
           text: 'Features (Anchor Link)',
-          href: getPermalink('/#features'),
+          href: "#features",
         },
         {
           text: 'Pricing',
-          href: getPermalink('/pricing'),
+          href: "/pricing",
         },
         {
           text: 'Contact',
-          href: getPermalink('/contact'),
+          href: "/contact",
         },
         {
           text: 'Terms',
-          href: getPermalink('/terms'),
+          href: "/terms",
         },
         {
           text: 'Privacy policy',
-          href: getPermalink('/privacy'),
+          href: "/privacy",
         },
       ],
     },
@@ -32,7 +30,7 @@ export const headerData = {
       links: [
         {
           text: 'Coming Soon or Pre-Launch',
-          href: getPermalink('/landing/pre-launch'),
+          href: "/landing/pre-launch",
         },
       ],
     },
@@ -88,8 +86,8 @@ export const footerData = {
     },
   ],
   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    { text: 'Terms', href: "/terms" },
+    { text: 'Privacy Policy', href: "/privacy" },
   ],
   socialLinks: [
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
