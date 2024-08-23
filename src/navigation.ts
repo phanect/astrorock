@@ -1,5 +1,3 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
-
 export const headerData = {
   links: [
     {
@@ -7,19 +5,19 @@ export const headerData = {
       links: [
         {
           text: 'SaaS',
-          href: getPermalink('/homes/saas'),
+          href: "/homes/saas",
         },
         {
           text: 'Startup',
-          href: getPermalink('/homes/startup'),
+          href: "/homes/startup",
         },
         {
           text: 'Mobile App',
-          href: getPermalink('/homes/mobile-app'),
+          href: "/homes/mobile-app",
         },
         {
           text: 'Personal',
-          href: getPermalink('/homes/personal'),
+          href: "/homes/personal",
         },
       ],
     },
@@ -28,31 +26,31 @@ export const headerData = {
       links: [
         {
           text: 'Features (Anchor Link)',
-          href: getPermalink('/#features'),
+          href: "#features",
         },
         {
           text: 'Services',
-          href: getPermalink('/services'),
+          href: "/services",
         },
         {
           text: 'Pricing',
-          href: getPermalink('/pricing'),
+          href: "/pricing",
         },
         {
           text: 'About us',
-          href: getPermalink('/about'),
+          href: "/about",
         },
         {
           text: 'Contact',
-          href: getPermalink('/contact'),
+          href: "/contact",
         },
         {
           text: 'Terms',
-          href: getPermalink('/terms'),
+          href: "/terms",
         },
         {
           text: 'Privacy policy',
-          href: getPermalink('/privacy'),
+          href: "/privacy",
         },
       ],
     },
@@ -61,27 +59,27 @@ export const headerData = {
       links: [
         {
           text: 'Lead Generation',
-          href: getPermalink('/landing/lead-generation'),
+          href: "/landing/lead-generation",
         },
         {
           text: 'Long-form Sales',
-          href: getPermalink('/landing/sales'),
+          href: "/landing/sales",
         },
         {
           text: 'Click-Through',
-          href: getPermalink('/landing/click-through'),
+          href: "/landing/click-through",
         },
         {
           text: 'Product Details (or Services)',
-          href: getPermalink('/landing/product'),
+          href: "/landing/product",
         },
         {
           text: 'Coming Soon or Pre-Launch',
-          href: getPermalink('/landing/pre-launch'),
+          href: "/landing/pre-launch",
         },
         {
           text: 'Subscription',
-          href: getPermalink('/landing/subscription'),
+          href: "/landing/subscription",
         },
       ],
     },
@@ -166,8 +164,8 @@ export const footerData = {
     },
   ],
   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    { text: 'Terms', href: "/terms" },
+    { text: 'Privacy Policy', href: "/privacy" },
   ],
   socialLinks: [
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
