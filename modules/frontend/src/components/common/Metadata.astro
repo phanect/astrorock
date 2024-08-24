@@ -4,7 +4,7 @@ import { AstroSeo } from '@astrolib/seo';
 
 import type { Props as AstroSeoProps } from '@astrolib/seo';
 
-import { SITE, METADATA } from 'astrowind:config';
+import { SITE } from 'astrowind:config';
 import type { MetaData } from '~/types';
 import { getCanonical } from '~/utils/permalinks';
 import config from "../../../astro.config.ts";
@@ -45,13 +45,25 @@ const seoProps: AstroSeoProps = merge(
     },
   },
   {
-    title: METADATA?.title?.default,
-    titleTemplate: METADATA?.title?.template,
-    noindex: typeof METADATA?.robots?.index !== 'undefined' ? !METADATA.robots.index : undefined,
-    nofollow: typeof METADATA?.robots?.follow !== 'undefined' ? !METADATA.robots.follow : undefined,
-    description: METADATA?.description,
-    openGraph: METADATA?.openGraph,
-    twitter: METADATA?.twitter,
+    title: "AstroWind",
+    titleTemplate: "%s — AstroWind",
+    noindex: false,
+    nofollow: false,
+    description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs.",
+    openGraph: {
+      site_name: "AstroWind",
+      images: [{
+        url: "~/assets/images/default.png",
+        width: 1200,
+        height: 628,
+      }],
+      type: "website",
+    },
+    twitter: {
+      handle: '@onwidget',
+      site: '@onwidget',
+      cardType: "summary_large_image",
+    },
   },
   {
     title: title,
