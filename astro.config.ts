@@ -7,9 +7,6 @@ import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
 import type { AstroIntegration } from 'astro';
-
-import astrowind from './vendor/integration';
-
 import { responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter';
 
 const hasExternalScripts = false;
@@ -57,10 +54,6 @@ export default defineConfig({
         config: { forward: ['dataLayer.push'] },
       })
     ),
-
-    astrowind({
-      config: './src/config.yaml',
-    }),
   ],
 
   markdown: {
