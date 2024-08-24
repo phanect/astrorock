@@ -17,7 +17,17 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
+  site: "https://astrowind.vercel.app",
+
   output: 'static',
+
+  base: "/",
+  trailingSlash: "never",
+
+  i18n: {
+    defaultLocale: "en",
+    locales: [ "en" ],
+  },
 
   integrations: [
     tailwind({
