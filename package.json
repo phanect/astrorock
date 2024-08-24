@@ -44,6 +44,7 @@
     "@iconify-json/flat-color-icons": "^1.1.11",
     "@iconify-json/tabler": "^1.1.121",
     "@phanect/configs": "latest",
+    "@phanect/utils": "^1.4.0",
     "@tailwindcss/typography": "^0.5.15",
     "@types/eslint__js": "^8.42.3",
     "@types/lodash.merge": "^4.6.9",
