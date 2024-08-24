@@ -4,9 +4,9 @@ import { AstroSeo } from '@astrolib/seo';
 
 import type { Props as AstroSeoProps } from '@astrolib/seo';
 
-import { SITE } from 'astrowind:config';
 import type { MetaData } from '~/types';
 import { getCanonical } from '~/utils/permalinks';
+import { siteName } from "~/config.ts";
 import config from "../../../astro.config.ts";
 
 import { adaptOpenGraphImages } from '~/utils/images';
@@ -35,7 +35,7 @@ const seoProps: AstroSeoProps = merge(
     description: undefined,
     openGraph: {
       url: canonical,
-      site_name: SITE?.name,
+      site_name: siteName,
       images: [],
       locale: config.i18n?.defaultLocale ?? 'en',
       type: 'website',

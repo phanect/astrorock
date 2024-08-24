@@ -11,8 +11,6 @@ import { imageService as unpicImageService } from "@unpic/astro/service";
 import icon from 'astro-icon';
 import compress from 'astro-compress';
 
-import astrowind from './vendor/integration';
-
 import {
   responsiveTablesRehypePlugin,
   lazyImagesRehypePlugin,
@@ -77,10 +75,6 @@ export default defineConfig({
       JavaScript: true,
       SVG: false,
       Logger: 1,
-    }),
-
-    astrowind({
-      config: './src/config.yaml',
     }),
   ],
 

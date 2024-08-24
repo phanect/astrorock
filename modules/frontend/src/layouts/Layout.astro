@@ -1,7 +1,7 @@
 ---
 import '~/styles/base.css';
 
-import { I18N } from 'astrowind:config';
+import { textDirection } from "~/config.ts";
 
 import CommonMeta from '~/components/common/CommonMeta.astro';
 import Favicons from '~/components/Favicons.astro';
@@ -22,7 +22,6 @@ export interface Props {
 }
 
 const { metadata = {} } = Astro.props;
-const { textDirection } = I18N;
 ---
 
 <!doctype html>

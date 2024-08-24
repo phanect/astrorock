@@ -1,8 +1,0 @@
-site:
-  name: AstroWind
-
-i18n:
-  textDirection: ltr
-
-ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
