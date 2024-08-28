@@ -7,18 +7,6 @@ export const headerData = {
           text: 'SaaS',
           href: "/homes/saas",
         },
-        {
-          text: 'Startup',
-          href: "/homes/startup",
-        },
-        {
-          text: 'Mobile App',
-          href: "/homes/mobile-app",
-        },
-        {
-          text: 'Personal',
-          href: "/homes/personal",
-        },
       ],
     },
     {
@@ -27,10 +15,6 @@ export const headerData = {
         {
           text: 'Features (Anchor Link)',
           href: "#features",
-        },
-        {
-          text: 'Services',
-          href: "/services",
         },
         {
           text: 'Pricing',
@@ -53,39 +37,6 @@ export const headerData = {
           href: "/privacy",
         },
       ],
-    },
-    {
-      text: 'Landing',
-      links: [
-        {
-          text: 'Lead Generation',
-          href: "/landing/lead-generation",
-        },
-        {
-          text: 'Long-form Sales',
-          href: "/landing/sales",
-        },
-        {
-          text: 'Click-Through',
-          href: "/landing/click-through",
-        },
-        {
-          text: 'Product Details (or Services)',
-          href: "/landing/product",
-        },
-        {
-          text: 'Coming Soon or Pre-Launch',
-          href: "/landing/pre-launch",
-        },
-        {
-          text: 'Subscription',
-          href: "/landing/subscription",
-        },
-      ],
-    },
-    {
-      text: 'Widgets',
-      href: '#',
     },
   ],
   actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
