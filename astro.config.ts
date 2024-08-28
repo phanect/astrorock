@@ -9,7 +9,7 @@ import icon from 'astro-icon';
 import { responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter';
 
 export default defineConfig({
-  site: "https://astrowind.vercel.app",
+  site: "https://astrorock.phanective.org",
 
   output: 'static',
 
