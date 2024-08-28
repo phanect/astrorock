@@ -1,8 +1,8 @@
-# AstroWind
+# AstroRock
 
-**AstroWind** is a free and open-source template to make your website using **[Astro 4.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/)**. Ready to start a new project and designed taking into account web best practices.
+**AstroRock** is a free and open-source template to make your website using **[Astro 4.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/)**. Ready to start a new project and designed taking into account web best practices.
 
-[![Licensed under MIT](https://img.shields.io/github/license/onwidget/astrowind?style=flat-square&color=dddddd&labelColor=000000)](https://github.com/onwidget/astrowind/blob/main/LICENSE.md)
+[![Licensed under MIT](https://img.shields.io/github/license/phanect/astrorock?style=flat-square&color=dddddd&labelColor=000000)](https://github.com/phanect/astrorock/blob/main/LICENSE.md)
 
 <details open>
 <summary>Table of Contents</summary>
@@ -25,15 +25,15 @@
 
 ## Demo
 
-📌 [https://astrowind.vercel.app/](https://astrowind.vercel.app/)
+📌 [https://astrorock.phanective.org/](https://astrorock.phanective.org/)
 
 ## Getting started
 
-**AstroWind** tries to give you quick access to creating a web app using [Astro 4](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/).
+**AstroRock** tries to give you quick access to creating a web app using [Astro 4](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/).
 
 ### Project structure
 
-Inside **AstroWind** template, you'll see the following folders and files:
+Inside **AstroRock** template, you'll see the following folders and files:
 
 ```
 /
@@ -79,7 +79,7 @@ There's nothing special about `src/components/`, but that's where we like to put
 
 Any static assets, like images, can be placed in the `public/` directory if they do not require any transformation or in the `assets/` directory if they are imported directly.
 
-[![Edit AstroWind on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/onwidget/astrowind/tree/main) [![Open in Gitpod](https://svgshare.com/i/xdi.svg)](https://gitpod.io/?on=gitpod#https://github.com/onwidget/astrowind) [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/onwidget/astrowind)
+[![Edit AstroRock on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/phanect/astrorock/tree/main) [![Open in Gitpod](https://svgshare.com/i/xdi.svg)](https://gitpod.io/?on=gitpod#https://github.com/phanect/astrorock) [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/phanect/astrorock)
 
 ### Commands
 
