@@ -7,6 +7,7 @@ import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
+import auth from "auth-astro";
 import { responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter';
 
 export default defineConfig({
@@ -31,6 +32,7 @@ export default defineConfig({
     mode: "standalone",
   }),
   integrations: [
+    auth(),
     tailwind({
       applyBaseStyles: false,
     }),
