@@ -2,6 +2,9 @@
   "name": "@onwidget/astrowind",
   "version": "1.0.0-beta.43",
   "description": "AstroWind: A free template using Astro 4.0 and Tailwind CSS. Astro starter theme.",
+  "license": "MIT",
+  "author": "onWidget (https://onwidget.com)",
+  "contributors": ["Jumpei Ogawa (https://phanective.org)"],
   "type": "module",
   "private": true,
   "engines": {
