@@ -17,6 +17,11 @@ export default defineConfig({
   base: "/",
   trailingSlash: "never",
 
+  security: {
+    // CSRF protection
+    checkOrigin: true,
+  },
+
   i18n: {
     defaultLocale: "en",
     locales: [ "en" ],
