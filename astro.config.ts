@@ -1,6 +1,7 @@
 import path from 'node:path';
 import { defineConfig } from 'astro/config';
 
+import nodejs from "@astrojs/node";
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
@@ -11,7 +12,7 @@ import { responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/util
 export default defineConfig({
   site: "https://astrorock.phanective.org",
 
-  output: 'static',
+  output: "hybrid",
 
   base: "/",
   trailingSlash: "never",
@@ -21,6 +22,9 @@ export default defineConfig({
     locales: [ "en" ],
   },
 
+  adapter: nodejs({
+    mode: "standalone",
+  }),
   integrations: [
     tailwind({
       applyBaseStyles: false,
