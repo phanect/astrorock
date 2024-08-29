@@ -54,6 +54,10 @@ export default defineConfig({
   },
 
   vite: {
+    build: {
+      // minify server side with esbuild, not only client side
+      minify: "esbuild",
+    },
     resolve: {
       alias: {
         '~': path.resolve(import.meta.dirname, './src'),
