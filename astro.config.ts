@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'node:path';
 import { defineConfig } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
