@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import type { MetaData } from '~/types';
+import type { PageMetaData } from '~/types';
 
 export interface Props {
   frontmatter: {
@@ -11,8 +11,8 @@ export interface Props {
 
 const { frontmatter } = Astro.props;
 
-const metadata: MetaData = {
-  title: frontmatter?.title,
+const metadata: PageMetaData = {
+  title: frontmatter.title,
 };
 ---
 

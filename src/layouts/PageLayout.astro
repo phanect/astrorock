@@ -6,10 +6,10 @@ import Announcement from '~/components/widgets/Announcement.astro';
 
 import { headerData, footerData } from '~/navigation';
 
-import type { MetaData } from '~/types';
+import type { PageMetaData } from '~/types';
 
 export interface Props {
-  metadata?: MetaData;
+  metadata: PageMetaData;
 }
 
 const { metadata } = Astro.props;

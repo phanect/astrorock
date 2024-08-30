@@ -49,23 +49,16 @@ export interface Taxonomy {
   title: string;
 }
 
-export interface MetaData {
-  title?: string;
-  ignoreTitleTemplate?: boolean;
-
-  canonical?: string;
-
+export type DefaultMetaData = {
+  titleTemplate: (pageTitle: string) => string;
   robots?: MetaDataRobots;
-
   description?: string;
-
   openGraph?: MetaDataOpenGraph;
   twitter?: MetaDataTwitter;
 }
 
 export interface MetaDataRobots {
-  index?: boolean;
-  follow?: boolean;
+  index: boolean;
 }
 
 export interface MetaDataImage {
@@ -75,17 +68,17 @@ export interface MetaDataImage {
 }
 
 export interface MetaDataOpenGraph {
-  url?: string;
-  siteName?: string;
-  images?: Array<MetaDataImage>;
-  locale?: string;
-  type?: string;
+  images: Array<MetaDataImage>;
 }
 
 export interface MetaDataTwitter {
   handle?: string;
   site?: string;
-  cardType?: string;
+}
+
+export type PageMetaData = Omit<DefaultMetaData, "titleTemplate" | "twitter"> & {
+  title: string;
+  ignoreTitleTemplate?: boolean;
 }
 
 export interface Image {

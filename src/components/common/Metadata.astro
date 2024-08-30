@@ -4,62 +4,59 @@ import { AstroSeo } from '@astrolib/seo';
 
 import type { Props as AstroSeoProps } from '@astrolib/seo';
 
-import type { MetaData } from '~/types';
+import type { PageMetaData } from '~/types';
 import { getCanonical } from '~/utils/permalinks';
 import { siteName, metadata } from "~/config.ts";
 import config from "../../../astro.config.ts";
 
-export interface Props extends MetaData {
-  dontUseTitleTemplate?: boolean;
-}
+export type Props = PageMetaData;
 
 const {
   title,
   ignoreTitleTemplate = false,
-  canonical = String(getCanonical(String(Astro.url.pathname))),
-  robots = {},
+  robots,
   description,
-  openGraph = {},
-  twitter = {},
+  openGraph,
 } = Astro.props;
 
+const canonical = String(getCanonical(String(Astro.url.pathname)));
+
 const seoProps: AstroSeoProps = merge(
+  // Default values
   {
-    title: '',
-    titleTemplate: '%s',
     canonical: canonical,
     noindex: true,
     nofollow: true,
-    description: undefined,
     openGraph: {
       url: canonical,
-      site_name: siteName,
-      images: [],
       locale: config.i18n?.defaultLocale ?? 'en',
       type: 'website',
     },
+  },
+  // Values from ~/config.ts
+  {
+    noindex: typeof metadata.robots?.index !== 'undefined' ? !metadata.robots.index : undefined,
+    nofollow: typeof metadata.robots?.index !== 'undefined' ? !metadata.robots.index : undefined,
+    description: metadata.description,
+    openGraph: {
+      site_name: siteName,
+      ...metadata.openGraph,
+    },
     twitter: {
-      cardType: openGraph?.images?.length ? 'summary_large_image' : 'summary',
+      cardType: metadata.openGraph?.images?.length ? "summary_large_image" : "summary",
+      ...metadata.twitter,
     },
   },
+  // Values from each pages
   {
-    title: metadata.title?.default,
-    titleTemplate: metadata.title?.template,
-    noindex: typeof metadata.robots?.index !== 'undefined' ? !metadata.robots.index : undefined,
-    nofollow: typeof metadata.robots?.follow !== 'undefined' ? !metadata.robots.follow : undefined,
-    description: metadata.description,
-    openGraph: metadata.openGraph,
-    twitter: metadata.twitter,
-  },
-  {
-    title: title,
-    titleTemplate: ignoreTitleTemplate ? '%s' : undefined,
-    canonical: canonical,
+    title: ignoreTitleTemplate ? title : metadata.titleTemplate(title),
     noindex: typeof robots?.index !== 'undefined' ? !robots.index : undefined,
-    nofollow: typeof robots?.follow !== 'undefined' ? !robots.follow : undefined,
+    nofollow: typeof robots?.index !== 'undefined' ? !robots.index : undefined,
     description: description,
-    openGraph: { url: canonical, ...openGraph },
-    twitter: twitter,
+    openGraph,
+    twitter: {
+      cardType: openGraph?.images?.length ? "summary_large_image" : "summary",
+    },
   }
 );
 ---

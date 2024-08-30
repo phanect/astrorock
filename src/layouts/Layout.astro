@@ -15,13 +15,13 @@ import BasicScripts from '~/components/common/BasicScripts.astro';
 import { ViewTransitions } from 'astro:transitions';
 
 import config from "../../astro.config.ts";
-import type { MetaData as MetaDataType } from '~/types';
+import type { PageMetaData } from '~/types';
 
 export interface Props {
-  metadata?: MetaDataType;
+  metadata: PageMetaData;
 }
 
-const { metadata = {} } = Astro.props;
+const { metadata } = Astro.props;
 ---
 
 <!doctype html>
