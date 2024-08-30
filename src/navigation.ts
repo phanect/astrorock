@@ -1,15 +1,6 @@
 export const headerData = {
   links: [
     {
-      text: 'Homes',
-      links: [
-        {
-          text: 'SaaS',
-          href: "/homes/saas",
-        },
-      ],
-    },
-    {
       text: 'Pages',
       links: [
         {
