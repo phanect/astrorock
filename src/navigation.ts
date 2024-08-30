@@ -1,16 +1,20 @@
 export const headerData = {
   links: [
     {
+      text: "Features",
+      href: "#features",
+    },
+    {
+      text: 'Pricing',
+      href: "/pricing",
+    },
+    {
+      text: "Download",
+      href: "https://github.com/phanect/astrorock",
+    },
+    {
       text: 'Pages',
       links: [
-        {
-          text: 'Features (Anchor Link)',
-          href: "#features",
-        },
-        {
-          text: 'Pricing',
-          href: "/pricing",
-        },
         {
           text: 'About us',
           href: "/about",
@@ -30,7 +34,18 @@ export const headerData = {
       ],
     },
   ],
-  actions: [{ text: 'Download', href: 'https://github.com/phanect/astrorock', target: '_blank' }],
+  actions: [
+    {
+      variant: "secondary",
+      text: "Login",
+      href: "#",
+    },
+    {
+      variant: "primary",
+      text: "Sign Up",
+      href: "#",
+    },
+  ],
 };
 
 export const footerData = {
