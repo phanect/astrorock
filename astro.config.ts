@@ -1,6 +1,4 @@
 import path from 'path';
-import { fileURLToPath } from 'url';
-
 import { defineConfig } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
@@ -14,8 +12,6 @@ import type { AstroIntegration } from 'astro';
 import astrowind from './vendor/integration';
 
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const hasExternalScripts = false;
 const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroIntegration)[] = []) =>
@@ -83,7 +79,7 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        '~': path.resolve(__dirname, './src'),
+        '~': path.resolve(import.meta.dirname, './src'),
       },
     },
   },
