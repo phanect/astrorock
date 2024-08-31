@@ -11,13 +11,7 @@ import config from "../../../astro.config.ts";
 
 export type Props = PageMetaData;
 
-const {
-  title,
-  ignoreTitleTemplate = false,
-  description,
-  searchIndex,
-  ogImage,
-} = Astro.props;
+const props = Astro.props;
 
 const canonical = String(getCanonical(String(Astro.url.pathname)));
 
@@ -49,15 +43,15 @@ const seoProps: AstroSeoProps = merge(
   },
   // Values from each pages
   {
-    title: ignoreTitleTemplate ? title : metadata.titleTemplate(title),
-    noindex: typeof searchIndex !== 'undefined' ? !searchIndex : undefined,
-    nofollow: typeof searchIndex !== 'undefined' ? !searchIndex : undefined,
-    description: description,
+    title: props.ignoreTitleTemplate ? props.title : metadata.titleTemplate(props.title),
+    noindex: typeof props.searchIndex !== 'undefined' ? !props.searchIndex : undefined,
+    nofollow: typeof props.searchIndex !== 'undefined' ? !props.searchIndex : undefined,
+    description: props.description,
     openGraph: {
-      images: [ ogImage ],
+      images: [ props.ogImage ],
     },
     twitter: {
-      cardType: ogImage ? "summary_large_image" : "summary",
+      cardType: props.ogImage ? "summary_large_image" : "summary",
     },
   }
 );
