@@ -1,9 +1,12 @@
 ---
 import { AstroSeo, type Props as AstroSeoProps } from '@astrolib/seo';
 import type { PageMetaData } from '~/types';
-import { getCanonical } from '~/utils/permalinks';
+import { getAsset, getCanonical } from '~/utils/permalinks';
 import { siteName, metadata } from "~/config.ts";
 import config from "../../../astro.config.ts";
+
+import favicon from "~/assets/favicons/favicon.svg";
+import appleTouchIcon from "~/assets/favicons/apple-touch-icon.png";
 
 export type Props = PageMetaData;
 
@@ -43,5 +46,26 @@ const seoProps: AstroSeoProps = {
   },
 };
 ---
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<!-- SEO & OpenGraph -->
 <AstroSeo {...seoProps } />
+<link rel="sitemap" href={ getAsset("/sitemap-index.xml") } />
+{
+  import.meta.env.GOOGLE_SITE_VERIFICATION &&
+    <meta name="google-site-verification" content={ import.meta.env.GOOGLE_SITE_VERIFICATION } />
+}
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href={ favicon.src } />
+
+<!-- Icons for Apple devices -->
+<link rel="mask-icon" href={ favicon.src } color="#8D46E7" />
+<link rel="apple-touch-icon" sizes="180x180" href={ appleTouchIcon.src } />
+<!--
+  /favicon.ico is also a fallback for Safari which does not support SVG favicons yet,
+  but it should not be listed here so that it is not used for the modern browsers
+  such as Chrome and Firefox.
+  favicon.ico should just placed under site root.
+-->
