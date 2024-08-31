@@ -53,19 +53,15 @@ export type DefaultMetaData = {
   titleTemplate: (pageTitle: string) => string;
   description?: string;
   searchIndex?: boolean;
-  ogImage?: MetaDataImage;
-  twitter?: MetaDataTwitter;
-}
-
-export interface MetaDataImage {
-  url: string;
-  width?: number;
-  height?: number;
-}
-
-export interface MetaDataTwitter {
-  creator?: string;
-  site?: string;
+  ogImage?: {
+    url: string;
+    width?: number;
+    height?: number;
+  };
+  twitter?: {
+    creator?: string;
+    site?: string;
+  };
 }
 
 export type PageMetaData = Omit<DefaultMetaData, "titleTemplate" | "twitter"> & {
