@@ -50,5 +50,8 @@ bun.lockb
 .astro/
 dist/
 
+# Prisma
+/prisma/db/
+
 # Others
 .node_repl_history
