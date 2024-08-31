@@ -11,6 +11,10 @@ export interface Props {
 
 const { frontmatter } = Astro.props;
 
+if (!frontmatter.title) {
+  throw new Error(`\`title\` is not set in ${ Astro.url.pathname }`);
+}
+
 const metadata: PageMetaData = {
   title: frontmatter.title,
 };
