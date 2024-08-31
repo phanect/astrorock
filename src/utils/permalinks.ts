@@ -3,7 +3,10 @@ import config from "../../astro.config.ts";
 
 export const trimSlash = (s: string) => trim(trim(s, '/'));
 
-/** */
+/** Returns full canonical URL.
+ * @param path - Absolute or relative path to convert to canonical URL
+ * @returns Full canonical URL
+ */
 export const getCanonical = (path: string): string => {
   if (path.length <= 0) {
     throw new Error("Empty string is given as a path. If you want to get canonical path of index, give \"/\" as the path.");
