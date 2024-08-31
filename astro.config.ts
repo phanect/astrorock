@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { defineConfig } from 'astro/config';
 
-import cloudflare from "@astrojs/cloudflare";
+import nodejs from "@astrojs/node";
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
@@ -22,8 +22,8 @@ export default defineConfig({
     locales: [ "en" ],
   },
 
-  adapter: cloudflare({
-    imageService: "compile",
+  adapter: nodejs({
+    mode: "standalone",
   }),
   integrations: [
     tailwind({
