@@ -64,7 +64,7 @@ export interface MetaDataImage {
 }
 
 export interface MetaDataTwitter {
-  handle?: string;
+  creator?: string;
   site?: string;
 }
 

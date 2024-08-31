@@ -37,6 +37,7 @@ const seoProps: AstroSeoProps = merge(
       images: [ metadata.ogImage ],
     },
     twitter: {
+      handle: metadata.twitter?.creator,
       cardType: metadata.ogImage ? "summary_large_image" : "summary",
       ...metadata.twitter,
     },

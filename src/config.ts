@@ -17,7 +17,7 @@ export const metadata: DefaultMetaData = {
     height: 628,
   },
   twitter: {
-    handle: '@onwidget',
+    creator: '@onwidget',
     site: '@onwidget',
   },
 }
