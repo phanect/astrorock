@@ -71,7 +71,7 @@ export type PageMetaData = Omit<DefaultMetaData, "titleTemplate" | "twitter"> & 
 
 export interface Image {
   src: string;
-  alt?: string;
+  alt: string;
 }
 
 export interface Video {
