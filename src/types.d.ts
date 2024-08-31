@@ -51,24 +51,16 @@ export interface Taxonomy {
 
 export type DefaultMetaData = {
   titleTemplate: (pageTitle: string) => string;
-  robots?: MetaDataRobots;
   description?: string;
-  openGraph?: MetaDataOpenGraph;
+  searchIndex?: boolean;
+  ogImage?: MetaDataImage;
   twitter?: MetaDataTwitter;
-}
-
-export interface MetaDataRobots {
-  index: boolean;
 }
 
 export interface MetaDataImage {
   url: string;
   width?: number;
   height?: number;
-}
-
-export interface MetaDataOpenGraph {
-  images: Array<MetaDataImage>;
 }
 
 export interface MetaDataTwitter {
