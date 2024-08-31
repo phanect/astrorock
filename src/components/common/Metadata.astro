@@ -1,5 +1,4 @@
 ---
-import merge from 'lodash.merge';
 import { AstroSeo } from '@astrolib/seo';
 
 import type { Props as AstroSeoProps } from '@astrolib/seo';
@@ -14,48 +13,38 @@ export type Props = PageMetaData;
 const props = Astro.props;
 
 const canonical = String(getCanonical(String(Astro.url.pathname)));
-
-const seoProps: AstroSeoProps = merge(
-  // Default values
-  {
-    canonical: canonical,
-    noindex: true,
-    nofollow: true,
-    openGraph: {
-      url: canonical,
-      locale: config.i18n?.defaultLocale ?? 'en',
-      type: 'website',
-    },
-  },
-  // Values from ~/config.ts
-  {
-    noindex: typeof metadata.searchIndex !== 'undefined' ? !metadata.searchIndex : undefined,
-    nofollow: typeof metadata.searchIndex !== 'undefined' ? !metadata.searchIndex : undefined,
-    description: metadata.description,
-    openGraph: {
-      site_name: siteName,
-      images: [ metadata.ogImage ],
-    },
-    twitter: {
-      handle: metadata.twitter?.creator,
-      cardType: metadata.ogImage ? "summary_large_image" : "summary",
-      ...metadata.twitter,
-    },
-  },
-  // Values from each pages
-  {
-    title: props.ignoreTitleTemplate ? props.title : metadata.titleTemplate(props.title),
-    noindex: typeof props.searchIndex !== 'undefined' ? !props.searchIndex : undefined,
-    nofollow: typeof props.searchIndex !== 'undefined' ? !props.searchIndex : undefined,
-    description: props.description,
-    openGraph: {
-      images: [ props.ogImage ],
-    },
-    twitter: {
-      cardType: props.ogImage ? "summary_large_image" : "summary",
-    },
+const searchIndex: boolean = (() => {
+  if (!import.meta.env.PROD) {
+    return false;
+  } else if (typeof props.searchIndex === "boolean") {
+    return props.searchIndex;
+  } else if (typeof metadata.searchIndex === "boolean") {
+    return metadata.searchIndex;
+  } else {
+    return true;
   }
-);
+})();
+const ogImage = props.ogImage ?? metadata.ogImage;
+
+const seoProps: AstroSeoProps = {
+  title: props.ignoreTitleTemplate ? props.title : metadata.titleTemplate(props.title),
+  description: props.description ?? metadata.description,
+  canonical: canonical,
+  noindex: !searchIndex,
+  nofollow: !searchIndex,
+  openGraph: {
+    url: canonical,
+    site_name: siteName,
+    images: ogImage ? [ ogImage ] : undefined,
+    locale: config.i18n?.defaultLocale ?? 'en',
+    type: 'website',
+  },
+  twitter: {
+    handle: metadata.twitter?.creator,
+    cardType: (props.ogImage ?? metadata.ogImage) ? "summary_large_image" : "summary",
+    ...metadata.twitter,
+  },
+};
 ---
 
 <AstroSeo {...seoProps } />
