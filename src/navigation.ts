@@ -1,4 +1,8 @@
-export const headerData = {
+import type { ComponentProps } from "astro/types";
+import type Header from "./components/widgets/Header.astro";
+import type Footer from "./components/widgets/Footer.astro";
+
+export const headerData: ComponentProps<typeof Header> = {
   links: [
     {
       text: "Features",
@@ -48,7 +52,7 @@ export const headerData = {
   ],
 };
 
-export const footerData = {
+export const footerData: ComponentProps<typeof Footer> = {
   links: [
     {
       title: 'Product',
