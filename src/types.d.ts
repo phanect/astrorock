@@ -196,7 +196,7 @@ export interface Form {
 // WIDGETS
 export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, "bg" | 'isDark' | 'classes'> {
   actions?: string | CallToAction[];
-  image?: string | unknown;
+  image?: Image;
 }
 
 export interface Team extends Omit<Headline, 'classes'>, Widget {
@@ -222,7 +222,7 @@ export interface Brands extends Omit<Headline, 'classes'>, Widget {
 }
 
 export interface Features extends Omit<Headline, 'classes'>, Widget {
-  image?: string | unknown;
+  image?: Image;
   video?: Video;
   items?: Array<Item>;
   columns?: number;
@@ -249,13 +249,13 @@ export interface Steps extends Omit<Headline, 'classes'>, Widget {
     classes?: Record<string, string>;
   }>;
   callToAction?: string | CallToAction;
-  image?: string | Image;
+  image?: Image;
   isReversed?: boolean;
 }
 
 export interface Content extends Omit<Headline, 'classes'>, Widget {
   content?: string;
-  image?: string | unknown;
+  image?: Image;
   items?: Array<Item>;
   columns?: number;
   isReversed?: boolean;
