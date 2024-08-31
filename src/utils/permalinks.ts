@@ -4,14 +4,20 @@ import config from "../../astro.config.ts";
 export const trimSlash = (s: string) => trim(trim(s, '/'));
 
 /** */
-export const getCanonical = (path = ''): string | URL => {
-  const url = String(new URL(path, config.site));
-  if (config.trailingSlash === "never" && path && url.endsWith('/')) {
-    return url.slice(0, -1);
-  } else if (config.trailingSlash === "always" && path && !url.endsWith('/')) {
-    return url + '/';
+export const getCanonical = (path: string): string => {
+  if (path.length <= 0) {
+    throw new Error("Empty string is given as a path. If you want to get canonical path of index, give \"/\" as the path.");
   }
-  return url;
+
+  const url: string = new URL(path, config.site).href;
+
+  if (config.trailingSlash === "never" && url.endsWith('/')) {
+    return url.slice(0, -1);
+  } else if (config.trailingSlash === "always" && !url.endsWith('/')) {
+    return url + '/';
+  } else {
+    return url;
+  }
 };
 
 /** */

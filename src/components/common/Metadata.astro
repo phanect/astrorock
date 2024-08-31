@@ -12,7 +12,7 @@ export type Props = PageMetaData;
 
 const props = Astro.props;
 
-const canonical = String(getCanonical(String(Astro.url.pathname)));
+const canonical = getCanonical(Astro.url.pathname);
 const searchIndex: boolean = (() => {
   if (!import.meta.env.PROD) {
     return false;
