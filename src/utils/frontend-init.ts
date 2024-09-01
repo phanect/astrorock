@@ -1,13 +1,11 @@
----
 import { theme as defaultTheme } from "~/config.ts";
----
 
-<script is:inline define:vars={{ defaultTheme: defaultTheme }}>
-  if (window.basic_script) {
+export const initialize = () => {
+  if (window.initialized) {
     return;
   }
 
-  window.basic_script = true;
+  window.initialized = true;
 
   function applyTheme(theme) {
     if (theme === 'dark') {
@@ -159,4 +157,4 @@ import { theme as defaultTheme } from "~/config.ts";
     onLoad();
     onPageShow();
   });
-</script>
+};

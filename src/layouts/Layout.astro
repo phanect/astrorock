@@ -21,6 +21,12 @@ export interface Props {
 const { metadata } = Astro.props;
 ---
 
+<script>
+import { initialize } from "~/utils/frontend-init.ts";
+
+initialize();
+</script>
+
 <!doctype html>
 <html lang={config.i18n?.defaultLocale ?? "en"} dir={textDirection} class="2xl:text-[20px]">
   <head>
@@ -34,8 +40,6 @@ const { metadata } = Astro.props;
 
   <body class="antialiased text-default bg-page tracking-tight">
     <slot />
-
-    <BasicScripts />
 
     <style is:global>
       img {
