@@ -6,7 +6,6 @@ import { textDirection } from "~/config.ts";
 import CustomStyles from '~/components/CustomStyles.astro';
 import ApplyColorMode from '~/components/common/ApplyColorMode.astro';
 import Metadata from '~/components/common/Metadata.astro';
-import BasicScripts from '~/components/common/BasicScripts.astro';
 
 // Comment the line below to disable View Transitions
 import { ViewTransitions } from 'astro:transitions';
@@ -22,9 +21,30 @@ const { metadata } = Astro.props;
 ---
 
 <script>
+import { theme as defaultTheme, type Theme } from "~/config.ts";
 import { initialize } from "~/utils/frontend-init.ts";
 
 initialize();
+
+function applyTheme(theme: Theme) {
+  if (theme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+}
+
+const initTheme = function () {
+  if (
+    localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    applyTheme('dark');
+  } else {
+    applyTheme('light');
+  }
+};
+initTheme();
 </script>
 
 <!doctype html>

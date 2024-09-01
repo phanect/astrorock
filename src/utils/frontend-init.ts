@@ -1,4 +1,10 @@
-import { theme as defaultTheme } from "~/config.ts";
+import { theme as defaultTheme, type Theme } from "~/config.ts";
+
+declare global {
+  interface Window {
+    initialized?: boolean;
+  }
+}
 
 export const initialize = () => {
   if (window.initialized) {
@@ -7,29 +13,7 @@ export const initialize = () => {
 
   window.initialized = true;
 
-  function applyTheme(theme) {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }
-
-  const initTheme = function () {
-    if ((defaultTheme && defaultTheme.endsWith(':only')) || (!localStorage.theme && defaultTheme !== 'system')) {
-      applyTheme(defaultTheme.replace(':only', ''));
-    } else if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      applyTheme('dark');
-    } else {
-      applyTheme('light');
-    }
-  };
-  initTheme();
-
-  function attachEvent(selector, event, fn) {
+  function attachEvent(selector: string, event: string, fn: (evt: Event, el: Element) => unknown) {
     const matches = typeof selector === 'string' ? document.querySelectorAll(selector) : selector;
     if (matches && matches.length) {
       matches.forEach((elem) => {

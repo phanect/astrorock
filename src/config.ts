@@ -1,7 +1,7 @@
 import type { DefaultMetaData } from "./types";
 
 type TextDirection = "ltr" | "rtl";
-type Theme = "system" | "light" | "dark" | "light:only" | "dark:only";
+export type Theme = "system" | "light" | "dark";
 
 export const siteName: string = "AstroRock";
 export const textDirection: TextDirection = "ltr";
